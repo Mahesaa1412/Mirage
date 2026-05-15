@@ -1,0 +1,255 @@
+/*
+    Created on : May 12, 2026
+    Author     : LENOVO
+*/
+
+/* ================================================
+   GLOBAL
+   ================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg:     #1c0801;
+    --secprim:#0f0501;
+    --font:   #f1d6bb;
+    --fontsh: #a99077;
+    --btn:    #520a0a;
+    --hover:  #7e0d0d;
+}
+
+
+/* ================================================
+   --- login ---
+   ================================================ */
+
+body.login {
+    background-color: var(--bg);
+    font-family: "IM Fell English", serif;
+    color: var(--font);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInPage 1s ease forwards;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.cnt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-family: "VT323", monospace;
+    font-size: 140px;
+    text-shadow: 0 0 20px #a99077;
+    letter-spacing: .20rem;
+    line-height: 1.1;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 20px #a99077; }
+    50%       { text-shadow: 0 0 40px #f1d6bb, 0 0 80px #a99077; }
+}
+
+.subtitle {
+    margin-top: .4rem;
+    margin-bottom: 2.5rem;
+    font-size: 28px;
+    letter-spacing: 2px;
+    font-style: italic;
+}
+
+.cardName {
+    position: relative;
+    border: 1px solid var(--font);
+    border-radius: 4px;
+    width: 32rem;
+    padding: 0 28px 28px 28px;
+    animation: slideUp 0.9s ease 0.3s both;
+}
+
+.cardName p {
+    font-family: "VT323", monospace;
+    color: var(--font);
+    font-size: 22px;
+    text-align: center;
+    margin: 20px 0 12px 0;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+input {
+    border: 1px solid var(--font);
+    width: 100%;
+    background: var(--secprim);
+    border-radius: 2px;
+    padding: .8rem 0;
+    text-align: center;
+    font-family: "IM Fell English", serif;
+    color: var(--font);
+    font-size: 20px;
+    font-style: italic;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 12px rgba(161, 144, 119, 0.4);
+}
+
+button {
+    margin-top: 1.2rem;
+    border: 1px solid var(--font);
+    width: 100%;
+    background: var(--btn);
+    border-radius: 2px;
+    padding: .8rem 1rem;
+    color: var(--font);
+    font-size: 24px;
+    font-family: "VT323", monospace;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    background: var(--hover);
+    box-shadow: 0 0 18px rgba(126, 13, 13, 0.7);
+}
+
+.error-msg {
+    color: #ff6b6b;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 6px;
+    min-height: 18px;
+    text-align: center;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%       { transform: translateX(-8px); }
+    40%       { transform: translateX(8px); }
+    60%       { transform: translateX(-5px); }
+    80%       { transform: translateX(5px); }
+}
+
+.shake { animation: shake 0.4s ease; }
+
+#fade-overlay {
+    position: fixed;
+    inset: 0;
+    background: #0f0501;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    z-index: 999;
+}
+
+#fade-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.particle {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: #a99077;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: drift linear infinite;
+    opacity: 0;
+}
+
+@keyframes drift {
+    0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
+    10%  { opacity: 0.4; }
+    90%  { opacity: 0.2; }
+    100% { transform: translateY(-10vh) translateX(40px); opacity: 0; }
+}
+
+
+/* ================================================
+   --- story ---
+   ================================================ */
+
+body.story {
+    background: var(--bg);
+    font-family: "IM Fell English", serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+#chap {
+    font-size: 30px;
+    color: var(--font);
+    text-shadow: 0 0 20px #a99077;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    transition: opacity 0.5s;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+#box {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+}
+
+#txt {
+    font-size: 35px;
+    line-height: 1.8;
+    font-style: italic;
+    color: var(--font);
+    min-height: 80px;
+    transition: opacity 0.5s;
+}
+
+#btn {
+    margin-top: 32px;
+    background: transparent;
+    border: 1px solid #555;
+    color: #aaa;
+    padding: 10px 28px;
+    font-size: 14px;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: border-color 0.2s, color 0.2s;
+    width: auto;
+}
+
+#btn:hover {
+    background: transparent;
+    border-color: #aaa;
+    color: #eee;
+    box-shadow: none;
+}
+
+#fin {
+    display: none;
+    font-size: 15px;
+    color: #777;
+    font-style: italic;
+    margin-top: 24px;
+}

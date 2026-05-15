@@ -211,13 +211,14 @@ body.story {
 }
 
 #box {
-    max-width: 1000px;
-    width: 100%;
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
     text-align: center;
 }
 
 #txt {
-    font-size: 35px;
+    font-size: 25px;
     line-height: 1.8;
     font-style: italic;
     color: var(--font);
@@ -225,25 +226,34 @@ body.story {
     transition: opacity 0.5s;
 }
 
-#btn {
-    margin-top: 32px;
-    background: transparent;
-    border: 1px solid #555;
-    color: #aaa;
-    padding: 10px 28px;
-    font-size: 14px;
-    font-family: Georgia, serif;
+.story-continue {
+    margin-top: 2rem;
+    font-family: "VT323", monospace;
+    color: var(--font);
+    letter-spacing: .18em;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity .5s ease;
     cursor: pointer;
-    letter-spacing: 1px;
-    transition: border-color 0.2s, color 0.2s;
-    width: auto;
+    user-select: none;
 }
 
-#btn:hover {
-    background: transparent;
-    border-color: #aaa;
-    color: #eee;
-    box-shadow: none;
+.story-continue:hover {
+    text-shadow: 0 0 12px rgba(241, 214, 187, 0.5);
+}
+
+.story-continue.visible {
+    opacity: 1;
+    animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0;
+    }
+    70% {
+        opacity: .70;
+    }
 }
 
 #fin {

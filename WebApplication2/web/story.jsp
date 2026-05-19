@@ -138,13 +138,6 @@
 
             // Click Continue
             contEl.onclick = nextStory;
-
-            // Keyboard Support
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    nextStory();
-                }
-            });
         </script>
 
     </body>
